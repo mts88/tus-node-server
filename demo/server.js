@@ -7,6 +7,7 @@ const assert = require('assert');
 const Server = require('../index').Server;
 const FileStore = require('../index').FileStore;
 const GCSDataStore = require('../index').GCSDataStore;
+const GSharedDriveDataStore = require('../index').GSharedDriveDataStore;
 const S3Store = require('../index').S3Store;
 const EVENTS = require('../index').EVENTS;
 
@@ -15,6 +16,14 @@ const server = new Server();
 const data_store = process.env.DATA_STORE || 'FileStore';
 
 switch (data_store) {
+    case 'GSharedDriveDataStore':
+        server.datastore = new GSharedDriveDataStore({
+            path: '/files',
+            drive_name: 'testme',
+            keyFilename: path.resolve(__dirname, '/home/mts/Scrivania/cloudvision_admin_credentials.json'),
+            subject: "admin@cloudvision.space"
+        });
+        break;
     case 'GCSDataStore':
         server.datastore = new GCSDataStore({
             path: '/files',

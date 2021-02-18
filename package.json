@@ -37,6 +37,7 @@
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "demo": "node demo/server.js",
     "gcs_demo": "cross-env DATA_STORE=GCSDataStore node demo/server.js",
+    "gsd_demo": "cross-env DATA_STORE=GSharedDriveDataStore node demo/server.js",
     "lint": "eslint ."
   },
   "devDependencies": {
@@ -59,6 +60,10 @@
     "@google-cloud/storage": "^5.3.0",
     "aws-sdk": "^2.761.0",
     "configstore": "^5.0.1",
-    "debug": "^4.2.0"
+    "debug": "^4.2.0",
+    "google-auth-library": "^7.0.2",
+    "googleapis": "^39.2.0",
+    "install": "^0.13.0",
+    "npm": "^7.5.4"
   }
 }
