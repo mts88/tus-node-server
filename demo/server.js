@@ -19,10 +19,10 @@ switch (data_store) {
     case 'GSharedDriveDataStore':
         server.datastore = new GSharedDriveDataStore({
             path: '/files',
-            directory: '/home/mts/Scrivania/tustest',
-            drive_id: "0AO0SylV0Dy96Uk9PVA",
-            keyFilename: path.resolve(__dirname, '/home/mts/Scrivania/cloudvision_admin_credentials.json'),
-            subject: "admin@cloudvision.space"
+            directory: '/temporary/directory',
+            drive_id: "SharedDriveId",
+            keyFilename: path.resolve(__dirname, '../keyfile.json'),
+            subject: "people.to.impersonate@gmail.com"
         });
         break;
     case 'GCSDataStore':
@@ -106,7 +106,7 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
 });
 
 server.on(EVENTS.EVENT_UPLOAD_ON_GDRIVE_COMPLETE, (event) => {
-    console.log(`[${new Date().toLocaleTimeString()}] [EVENT HOOK] Upload complete on GDrive for file ${event.file_id}`);
+    console.log(`[${new Date().toLocaleTimeString()}] [EVENT HOOK] Upload complete on GDrive for file ${event.file.id} on drive ${event.file.drive_id}`);
 });
 
 // // this is the express stile ;)
