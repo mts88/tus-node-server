@@ -19,7 +19,8 @@ switch (data_store) {
     case 'GSharedDriveDataStore':
         server.datastore = new GSharedDriveDataStore({
             path: '/files',
-            drive_name: 'testme',
+            directory: '/home/mts/Scrivania/tustest',
+            drive_id: "0AO0SylV0Dy96Uk9PVA",
             keyFilename: path.resolve(__dirname, '/home/mts/Scrivania/cloudvision_admin_credentials.json'),
             subject: "admin@cloudvision.space"
         });
@@ -102,6 +103,10 @@ server.get('/dist/tus.min.js.map', writeFile);
 
 server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     console.log(`[${new Date().toLocaleTimeString()}] [EVENT HOOK] Upload complete for file ${event.file.id}`);
+});
+
+server.on(EVENTS.EVENT_UPLOAD_ON_GDRIVE_COMPLETE, (event) => {
+    console.log(`[${new Date().toLocaleTimeString()}] [EVENT HOOK] Upload complete on GDrive for file ${event.file_id}`);
 });
 
 // // this is the express stile ;)
