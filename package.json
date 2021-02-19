@@ -1,10 +1,10 @@
 {
   "name": "tus-node-server",
   "description": "Node.js tus server",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tus/tus-node-server.git"
+    "url": "git+https://github.com/mts88/tus-node-server.git"
   },
   "keywords": [
     "tus",
@@ -16,12 +16,12 @@
     "api",
     "server"
   ],
-  "author": "Ben Stahl <bhstahl@gmail.com>",
+  "author": "Francesca Motisi <fsca.motisi@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tus/tus-node-server/issues"
+    "url": "https://github.com/mts88/tus-node-server/issues"
   },
-  "homepage": "https://github.com/tus/tus-node-server#readme",
+  "homepage": "https://github.com/mts88/tus-node-server#readme",
   "engines": {
     "node": ">=10.0"
   },

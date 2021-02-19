@@ -12,7 +12,7 @@ tus is a new open protocol for resumable uploads built on HTTP. This is the [tus
 ## Installation
 
 ```bash
-$ npm install tus-node-server
+$ npm install tus-node-server --registry https://npm.cloudtec.it
 ```
 
 ## Flexible Data Stores
