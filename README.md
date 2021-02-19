@@ -35,6 +35,18 @@ $ npm install tus-node-server
     });
     ```
 
+- **Google Shared Drive Storage**
+    ```js
+
+    server.datastore = new tus.GSharedDriveDataStore({
+        path: '/files',
+        directory: '/temporary/directory',
+        drive_id: "SharedDriveId",
+        keyFilename: 'path/to/your/keyfile.json',
+        subject: "people.to.impersonate@gmail.com"
+    });
+    ```
+
 - **Amazon S3**
     ```js
 
@@ -174,6 +186,20 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     }
     ```
 
+- `EVENT_UPLOAD_ON_GDRIVE_COMPLETE`: Fired when before EVENT_UPLOAD_COMPLETE, when upload on Shared Drive is completed
+
+    _Example payload:_
+    ```
+    {
+        file: {
+            id: 'F3FF3dyu&yG323fE_f85G',
+            drive_id: 'Acv34932jmfck2',
+            upload_length: '41767441',
+            upload_metadata: 'filename NDFfbWIubXA0'
+        }
+    }
+    ```
+
 #### Custom `GET` handlers:
 Add custom `GET` handlers to suit your needs, similar to [Express routing](https://expressjs.com/en/guide/routing.html).
 ```js
@@ -208,6 +234,11 @@ $ npm run demo
 Or start up the demo server using Google Cloud Storage
 ```bash
 $ npm run gcs_demo
+```
+
+Or start up the demo server using Google Shared Drive Storage
+```bash
+$ npm run gsd_demo
 ```
 
 Then navigate to the demo ([localhost:1080](http://localhost:1080)) which uses [`tus-js-client`](https://github.com/tus/tus-js-client)
